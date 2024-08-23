@@ -1,12 +1,12 @@
-// src/TestPage.tsx
-
 import React, { useState } from 'react';
 import { Button, Card, Radio } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import questions from '../const/questions.short';
 
 const TestPage: React.FC = () => {
   const [answers, setAnswers] = useState<number[]>(Array(5).fill(0)); // Initialize answers for 30 questions
   const navigate = useNavigate();
+  const language = 'EN';
 
   // Handle answer change
   const handleAnswerChange = (questionIndex: number, value: number) => {
@@ -30,13 +30,15 @@ const TestPage: React.FC = () => {
         Personality Test
       </h1>
       <div className="w-full max-w-3xl">
-        {Array.from({ length: 30 }, (_, index) => (
+        {questions.map((question, index) => (
           <Card
-            key={index}
+            key={question.id}
             className="mb-6 shadow-md rounded-lg"
             style={{ backgroundColor: '#ffffff', borderColor: '#f0f0f0' }}
           >
-            <p className="text-lg text-cozyPurple">Question {index + 1}: How do you feel about this statement?</p>
+            <p className="text-lg text-cozyPurple">
+              {`Question ${index + 1}: ${question.wording[language]}`}
+            </p>
             <Radio.Group
               onChange={(e) => handleAnswerChange(index, e.target.value)}
               value={answers[index]}
