@@ -6,10 +6,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        peach: '#FAD02E',
-        softOrange: '#F9AFAE',
+        black: '#170804',
+        white: '#FFEEE5',
+        // Redish colors decreasing intensity
+        red: '#EA411D',
+        salmon: '#FC9985',
+        peach: '#FFB9AA',
+        // Purplish colors decreasing intensity
         purpleBubble: '#BDA0CB',
-        cozyPurple: '#8E2DE2', // You can add more colors here
+        cozyPurple: '#8E2DE2',
       },
       fontFamily: {
         sans: ['Helvetica', 'Arial', 'sans-serif'],
