@@ -1,37 +1,36 @@
 import React from 'react';
-import { Button } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import logo from '../const/temp_unlove_logo.png';
 
-const LandingPage: React.FC = () => {
-  const navigate = useNavigate();
-
-  // Function to handle navigation to the test page
-  const navigateToTest = () => {
-    navigate('/test');
-  };
-
+const Header: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-peach p-6">
-      <h1 className="text-4xl font-cozy font-bold mb-6 text-center text-cozyPurple">
-        Unlove
-      </h1>
-      <h2 className="text-2xl font-cozy font-bold mb-6 text-center text-cozyPurple">
-        Try not to unlove before loving.
-      </h2>
-      <p className="text-lg text-center text-softOrange mb-8 max-w-xl">
-        Discover more about yourself and your compatibility with others. 
-        Take our personality test now and gain valuable insights.
-      </p>
-      <Button 
-        type="primary" 
-        size="large" 
-        onClick={navigateToTest}
-        className="bg-cozyPurple hover:bg-purpleBubble border-none text-white"
-      >
-        Start the Test
-      </Button>
-    </div>
+    <header className="bg-salmon p-4 shadow-md">
+      <div className="container mx-auto flex justify-between items-center">
+        <div className="flex items-center">
+          <img
+            src={logo} // TODO find logo
+            alt="Unlove Logo"
+            className="h-10 mr-4"
+          />
+          <h1 className="text-cozyPurple font-bold text-2xl">Unlove</h1>
+        </div>
+        <nav>
+          <ul className="flex space-x-4">
+            <li>
+              <Link to="/" className="text-cozyPurple hover:text-purpleBubble">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/test" className="text-cozyPurple hover:text-purpleBubble">
+                Take the Test
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
   );
 };
 
-export default LandingPage;
+export default Header;
