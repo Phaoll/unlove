@@ -1,27 +1,39 @@
+// src/TestPage.tsx
+
 import React, { useState } from 'react';
-import { Button, Card, Radio } from 'antd';
+import { Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import questions from '../const/questions.short';
+import QuestionComponent from './question.component';
+import questions from '../const/questions.short'; // Assuming this is your question list
 
 const TestPage: React.FC = () => {
-  const [answers, setAnswers] = useState<number[]>(Array(5).fill(0)); // Initialize answers for 30 questions
+  const [answersPerson1, setAnswersPerson1] = useState<number[]>(Array(questions.length).fill(0));
+  const [answersPerson2, setAnswersPerson2] = useState<number[]>(Array(questions.length).fill(0));
   const navigate = useNavigate();
-  const language = 'EN';
 
-  // Handle answer change
-  const handleAnswerChange = (questionIndex: number, value: number) => {
-    const newAnswers = [...answers];
-    newAnswers[questionIndex] = value;
-    setAnswers(newAnswers);
+  // Function to handle answer change for each person
+  const handleAnswerChange = (person: 'person1' | 'person2', questionId: string, value: number) => {
+    const index = questions.findIndex((q) => q.id === questionId);
+    if (index === -1) return;
+
+    if (person === 'person1') {
+      const newAnswers = [...answersPerson1];
+      newAnswers[index] = value;
+      setAnswersPerson1(newAnswers);
+    } else {
+      const newAnswers = [...answersPerson2];
+      newAnswers[index] = value;
+      setAnswersPerson2(newAnswers);
+    }
   };
 
   // Handle form submission
   const handleSubmit = () => {
-    console.log('Submitted answers:', answers);
+    console.log('Submitted answers:', { answersPerson1, answersPerson2 });
   };
 
   const navigateToHome = () => {
-    navigate('/'); 
+    navigate('/');
   };
 
   return (
@@ -30,42 +42,29 @@ const TestPage: React.FC = () => {
         Personality Test
       </h1>
       <div className="w-full max-w-3xl">
-        {questions.map((question, index) => (
-          <Card
+        {questions.map((question) => (
+          <QuestionComponent
             key={question.id}
-            className="mb-6 shadow-md rounded-lg"
-            style={{ backgroundColor: '#ffffff', borderColor: '#f0f0f0' }}
-          >
-            <p className="text-lg text-cozyPurple">
-              {`Question ${index + 1}: ${question.wording[language]}`}
-            </p>
-            <Radio.Group
-              onChange={(e) => handleAnswerChange(index, e.target.value)}
-              value={answers[index]}
-            >
-              <div className="flex flex-col space-y-2">
-                <Radio className="text-softOrange" value={1}>Strongly Disagree</Radio>
-                <Radio className="text-softOrange" value={2}>Disagree</Radio>
-                <Radio className="text-softOrange" value={3}>Neutral</Radio>
-                <Radio className="text-softOrange" value={4}>Agree</Radio>
-                <Radio className="text-softOrange" value={5}>Strongly Agree</Radio>
-              </div>
-            </Radio.Group>
-          </Card>
+            question={question.wording.EN} // Adjust based on language selection
+            questionId={question.id}
+            answersPerson1={answersPerson1[questions.findIndex((q) => q.id === question.id)]}
+            answersPerson2={answersPerson2[questions.findIndex((q) => q.id === question.id)]}
+            onAnswerChange={handleAnswerChange}
+          />
         ))}
       </div>
       <div className="flex space-x-4 mt-8">
-        <Button 
-          type="primary" 
-          size="large" 
-          onClick={handleSubmit} 
+        <Button
+          type="primary"
+          size="large"
+          onClick={handleSubmit}
           className="bg-cozyPurple hover:bg-purpleBubble border-none text-white"
         >
           Submit Answers
         </Button>
-        <Button 
-          type="primary" 
-          size="large" 
+        <Button
+          type="primary"
+          size="large"
           onClick={navigateToHome}
           className="bg-cozyPurple hover:bg-purpleBubble border-none text-white"
         >
