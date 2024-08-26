@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import QuestionComponent from './question.component';
-import questions from '../const/questions.short'; 
+import questions from '../const/questions'; 
 import { RootState } from '../store';
 import { initializeAnswers, updateAnswer } from '../slices/answer.slice';
 
