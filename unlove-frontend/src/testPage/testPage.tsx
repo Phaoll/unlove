@@ -1,32 +1,14 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
 import { Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import QuestionComponent from './question.component';
 import questions from '../const/questions'; 
-import { RootState } from '../store';
-import { initializeAnswers, updateAnswer } from '../slices/answer.slice';
 
 const TestPage: React.FC = () => {
-  const dispatch = useDispatch();
-  const answersPerson1 = useSelector((state: RootState) => state.answers.person1Answers);
-  const answersPerson2 = useSelector((state: RootState) => state.answers.person2Answers);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Initialize the answers when the component mounts
-    dispatch(initializeAnswers(questions.length));
-  }, [dispatch]);
-
-  const handleAnswerChange = (person: 'person1' | 'person2', questionId: string, value: number) => {
-    const index = questions.findIndex((q) => q.id === questionId);
-    if (index !== -1) {
-      dispatch(updateAnswer({ person, index, value }));
-    }
-  };
-
   const handleSubmit = () => {
-    console.log('Submitted answers:', { answersPerson1, answersPerson2 });
+    console.log('Submitted answers.');
   };
 
   const navigateToHome = () => {
@@ -44,9 +26,6 @@ const TestPage: React.FC = () => {
             key={question.id}
             question={question.wording.EN} // Adjust based on language selection
             questionId={question.id}
-            answersPerson1={answersPerson1[questions.findIndex((q) => q.id === question.id)]}
-            answersPerson2={answersPerson2[questions.findIndex((q) => q.id === question.id)]}
-            onAnswerChange={handleAnswerChange}
           />
         ))}
       </div>
