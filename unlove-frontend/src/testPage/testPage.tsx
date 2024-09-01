@@ -1,11 +1,22 @@
-import React from 'react';
-import { Button } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { Button, Modal, Tooltip } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import QuestionComponent from './question.component';
 import questions from '../const/questions'; 
+import Cookies from 'js-cookie';
 
 const TestPage: React.FC = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check for a cookie to see if the user has dismissed the dialog before
+    const hasVisited = Cookies.get('hasVisitedTestPage');
+    if (!hasVisited) {
+      setIsModalVisible(true); // Show modal on first visit
+      Cookies.set('hasVisitedTestPage', 'true', { expires: 30 }); // Set cookie for one month
+    }
+  }, []);
 
   const handleSubmit = () => {
     console.log('Submitted answers.');
@@ -13,6 +24,14 @@ const TestPage: React.FC = () => {
 
   const navigateToHome = () => {
     navigate('/');
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const showInfoDialog = () => {
+    setIsModalVisible(true);
   };
 
   return (
@@ -46,6 +65,25 @@ const TestPage: React.FC = () => {
         >
           Back to Home
         </Button>
+      </div>
+      <Modal
+        title="Welcome to the Personality Test"
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleOk}
+        okText="Got it!"
+        cancelButtonProps={{ style: { display: 'none' } }} // Hide cancel button
+      >
+        <p>Explanation of the logic + explanation of the scales + example with age gap</p>
+      </Modal>
+      <div className="fixed bottom-4 right-4">
+        <Tooltip title="Show Information">
+          <Button
+            shape="circle"
+            icon={<i className="anticon anticon-info-circle" />}
+            onClick={showInfoDialog}
+          />
+        </Tooltip>
       </div>
     </div>
   );

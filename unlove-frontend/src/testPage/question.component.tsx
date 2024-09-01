@@ -35,19 +35,19 @@ const QuestionComponent: React.FC<QuestionComponentProps> = ({
             value={valueRespondent1}
           >
             <div className="flex space-x-2">
-              <Radio className="text-red" value={-3}>
+              <Radio className="text-red aria-labels" value={-3}>
                 1
               </Radio>
-              <Radio className="text-red" value={-1}>
+              <Radio className="text-red aria-labels" value={-1}>
                 2
               </Radio>
-              <Radio className="text-red" value={0}>
+              <Radio className="text-red aria-labels" value={0}>
                 3
               </Radio>
-              <Radio className="text-red" value={1}>
+              <Radio className="text-red aria-labels" value={1}>
                 4
               </Radio>
-              <Radio className="text-red" value={3}>
+              <Radio className="text-red aria-labels" value={3}>
                 5
               </Radio>
             </div>
@@ -61,19 +61,19 @@ const QuestionComponent: React.FC<QuestionComponentProps> = ({
             value={valueRespondent2}
           >
             <div className="flex space-x-2">
-              <Radio className="text-purpleBubble" value={-3}>
+              <Radio className="text-purpleBubble aria-labels" value={-3}>
                 1
               </Radio>
-              <Radio className="text-purpleBubble" value={-1}>
+              <Radio className="text-purpleBubble aria-labels" value={-1}>
                 2
               </Radio>
-              <Radio className="text-purpleBubble" value={0}>
+              <Radio className="text-purpleBubble aria-labels" value={0}>
                 3
               </Radio>
-              <Radio className="text-purpleBubble" value={1}>
+              <Radio className="text-purpleBubble aria-labels" value={1}>
                 4
               </Radio>
-              <Radio className="text-purpleBubble" value={3}>
+              <Radio className="text-purpleBubble aria-labels" value={3}>
                 5
               </Radio>
             </div>
