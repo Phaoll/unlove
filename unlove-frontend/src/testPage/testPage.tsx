@@ -37,7 +37,7 @@ const TestPage: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-softOrange p-6">
       <h1 className="text-3xl font-cozy font-bold mb-8 text-center text-cozyPurple">
-        Personality Test
+        Let's Unlove
       </h1>
       <div className="w-full max-w-3xl">
         {questions.map((question) => (

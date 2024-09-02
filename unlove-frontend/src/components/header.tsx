@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../const/temp_unlove_logo.png';
+import content from '../const/copywright';
 
 const Header: React.FC = () => {
   return (
@@ -18,12 +19,12 @@ const Header: React.FC = () => {
           <ul className="flex space-x-4">
             <li>
               <Link to="/" className="text-cozyPurple hover:text-purpleBubble">
-                Home
+                {content['landingPage button'].EN}
               </Link>
             </li>
             <li>
               <Link to="/test" className="text-cozyPurple hover:text-purpleBubble">
-                Take the Test
+                {content['startTheTest button'].EN}
               </Link>
             </li>
           </ul>
