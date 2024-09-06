@@ -1,33 +1,34 @@
 /* src/styles/CustomRadioButton.css */
 
 .custom-dealbreaker {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .radio-custom {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.5rem; /* Adjust size here */
-    height: 1.5rem; /* Adjust size here */
-    border-radius: 50%;
-    border: 2px solid #EA411D; /* Adjust border color here */
-    margin-right: 0.5rem;
-    transition: background-color 0.2s, border-color 0.2s;
-  }
-  
-  .radio-custom.checked {
-    background-color: #EA411D; /* Adjust fill color when checked */
-    border-color: #EA411D; /* Adjust border color when checked */
-  }
-  
-  .custom-radio-button .text-red {
-    color: #EA411D; /* Adjust text color */
-  }
-  
-  .custom-radio-button .text-purpleBubble {
-    color: #BDA0CB; /* Adjust text color */
-  }
-  
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.radio-custom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem; /* Adjust size here */
+  height: 1.5rem; /* Adjust size here */
+  border-radius: 50%;
+  border: 2px solid #ea411d; /* Adjust border color here */
+  margin-right: 0.5rem;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.radio-custom.checked {
+  background-color: #ea411d; /* Adjust fill color when checked */
+  border-color: #ea411d; /* Adjust border color when checked */
+}
+
+.custom-radio-button .text-red {
+  color: #ea411d; /* Adjust text color */
+}
+
+.custom-radio-button .text-purpleBubble {
+  color: #bda0cb; /* Adjust text color */
+}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Modal, Tooltip } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import QuestionComponent from './question.component';
-import questions from '../const/questions'; 
+import questions from '../const/questions';
 import Cookies from 'js-cookie';
 
 const TestPage: React.FC = () => {
@@ -74,7 +74,10 @@ const TestPage: React.FC = () => {
         okText="Got it!"
         cancelButtonProps={{ style: { display: 'none' } }} // Hide cancel button
       >
-        <p>Explanation of the logic + explanation of the scales + example with age gap</p>
+        <p>
+          Explanation of the logic + explanation of the scales + example with
+          age gap
+        </p>
       </Modal>
       <div className="fixed bottom-4 right-4">
         <Tooltip title="Show Information">

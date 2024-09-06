@@ -22,9 +22,9 @@ const LandingPage: React.FC = () => {
       <p className="text-lg text-center text-softOrange mb-8 max-w-xl">
         {content['first paragraph'].EN}
       </p>
-      <Button 
-        type="primary" 
-        size="large" 
+      <Button
+        type="primary"
+        size="large"
         onClick={navigateToTest}
         className="bg-cozyPurple hover:bg-purpleBubble border-none mb-8 text-white"
       >

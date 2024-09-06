@@ -9,7 +9,7 @@ interface AnswerState {
 
 // Initial state
 const initializeAnswers = () => {
-  return new Map(questions.map(question => [question.id, 0]));
+  return new Map(questions.map((question) => [question.id, 0]));
 };
 
 const initialState: AnswerState = {
@@ -46,11 +46,17 @@ const answersSlice = createSlice({
 });
 
 // Selectors
-export const selectPerson1Answer = (state: { answers: AnswerState }, questionId: string): number => {
+export const selectPerson1Answer = (
+  state: { answers: AnswerState },
+  questionId: string
+): number => {
   return state.answers.person1Answers.get(questionId) || 0;
 };
 
-export const selectPerson2Answer = (state: { answers: AnswerState }, questionId: string): number => {
+export const selectPerson2Answer = (
+  state: { answers: AnswerState },
+  questionId: string
+): number => {
   return state.answers.person2Answers.get(questionId) || 0;
 };
 

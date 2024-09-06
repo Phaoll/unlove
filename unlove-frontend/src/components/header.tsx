@@ -23,7 +23,10 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link to="/test" className="text-cozyPurple hover:text-purpleBubble">
+              <Link
+                to="/test"
+                className="text-cozyPurple hover:text-purpleBubble"
+              >
                 {content['startTheTest button'].EN}
               </Link>
             </li>
