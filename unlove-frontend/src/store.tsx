@@ -1,5 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import answersReducer from './slices/answer.slice';
+import { enableMapSet } from 'immer';
+
+enableMapSet();
 
 const store = configureStore({
   reducer: {
