@@ -9,7 +9,15 @@ import {
 } from '../slices/answer.slice';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store';
-import '../styles/CustomRadioButtons.css'; // Import the custom CSS file
+import '../styles/CustomRadioButtons.css';
+
+const indexCssStyle = [
+  { value: -3, css: 'custom-radio-button' },
+  { value: -1, css: 'custom-radio-button' },
+  { value: 0, css: 'custom-radio-button' },
+  { value: 1, css: 'custom-radio-button' },
+  { value: 3, css: 'custom-radio-button' },
+];
 
 interface QuestionComponentProps {
   question: string;
