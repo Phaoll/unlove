@@ -1,14 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-
-// Create these components or import them when you have them
-function Home() {
-  return <div>Home Page</div>;
-}
-
-function About() {
-  return <div>About Page</div>;
-}
+import Home from "./pages/home";
+import About from "./pages/about";
 
 function App() {
   return (
