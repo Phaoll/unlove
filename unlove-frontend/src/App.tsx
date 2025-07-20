@@ -5,6 +5,9 @@ import MainNavBar from "./components/custom/navBar";
 import Selection from "./pages/test/selection";
 import TwoPartnersShortTest from "./pages/test/2p-short";
 
+// TODO
+// i18n
+
 function App() {
   return (
     <div className="App">
