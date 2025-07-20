@@ -7,6 +7,7 @@ import TwoPartnersShortTest from "./pages/test/2p-short";
 
 // TODO
 // i18n
+// notify a user when its data is used for a comparison and send the same result
 
 function App() {
   return (
