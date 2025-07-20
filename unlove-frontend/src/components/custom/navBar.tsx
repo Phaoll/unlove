@@ -34,7 +34,7 @@ export default function MainNavBar() {
                 asChild
                 className={navigationMenuTriggerStyle()}
               >
-                <Link to="/about">About</Link>
+                <Link to="/test">Test</Link>
               </NavigationMenuLink>
             </NavigationMenuList>
           </NavigationMenu>

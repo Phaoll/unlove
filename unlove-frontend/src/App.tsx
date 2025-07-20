@@ -1,8 +1,9 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home";
-import About from "./pages/about";
 import MainNavBar from "./components/custom/navBar";
+import Selection from "./pages/test/selection";
+import TwoPartnersShortTest from "./pages/test/2p-short";
 
 function App() {
   return (
@@ -10,7 +11,10 @@ function App() {
       <MainNavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/test" element={<Selection />}>
+          <Route index element={<Navigate to="2p-short" replace />} />
+          <Route path="2p-short" element={<TwoPartnersShortTest />} />
+        </Route>
       </Routes>
     </div>
   );
