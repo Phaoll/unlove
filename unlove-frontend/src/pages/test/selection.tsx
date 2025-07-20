@@ -1,64 +1,25 @@
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Alert, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
+import { useAppSelector } from "@/store/hook";
 import {
-  BadgeInfo,
-  BookUp2,
-  PopcornIcon,
-  Star,
-  Sword,
-  Swords,
-  Timer,
-} from "lucide-react";
-import { useState } from "react";
+  selectNumberOfPartner,
+  selectTestType,
+  setNumberOfPartner,
+  setTestType,
+} from "@/store/slices/testSettingsSlice";
+import { BookUp2, Star, Sword, Swords, Timer } from "lucide-react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 // TODO
-// Add store to set the parameters of the test
 // Add launch button
 
 function Selection() {
-  const [testTypeText, setTestTypeText] = useState<null | string>(null);
-  const [numberPatnerText, setNumberPatnerText] = useState<null | string>(null);
+  const navigate = useNavigate();
 
-  // Test type
-  const [quickTestSelected, setQuickTestSelected] = useState<boolean>(false);
-  const [completeTestSelected, setCompleteTestSelected] =
-    useState<boolean>(false);
-  // Partner set up
-  const [singlePartnerSelected, setSinglePartnerSelected] =
-    useState<boolean>(false);
-  const [twoPartnerSelected, setTwoPartnerSelected] = useState<boolean>(false);
-
-  function onClickQuickTest() {
-    setQuickTestSelected(true);
-    setCompleteTestSelected(false);
-    setTestTypeText(
-      "5 minutes, 30 questions for the pure essence of the UnLove test.",
-    );
-  }
-  function onClickCompleteTest() {
-    setCompleteTestSelected(true);
-    setQuickTestSelected(false);
-    setTestTypeText(
-      "All the question that you have to ask for not UnLoving, don't miss any detail of your relationship.",
-    );
-  }
-  function onClickSinglePartner() {
-    setSinglePartnerSelected(true);
-    setTwoPartnerSelected(false);
-    setNumberPatnerText(
-      "Take the test now and save your answer to get the results later, we store all your answers for free for 24 hours.",
-    );
-  }
-  function onClickTwoPartner() {
-    setTwoPartnerSelected(true);
-    setSinglePartnerSelected(false);
-    setNumberPatnerText(
-      "Take the test side by side and have the result delivered immediately.",
-    );
-  }
-  function onClickLaunchTest() {
-    console.log("Launching test");
-  }
+  const dispatch = useDispatch();
+  const testType = useAppSelector(selectTestType);
+  const numberOfPartner = useAppSelector(selectNumberOfPartner);
 
   return (
     <div>
@@ -69,8 +30,8 @@ function Selection() {
         <div className="flex flex-col">
           {/* https://github.com/shadcn-ui/ui/issues/6316 */}
           <Button
-            className={`h-32 w-32 [&_svg]:size-20 border-4 ${quickTestSelected ? "border-orange-400 bg-orange-300" : "border-transparent"}`}
-            onClick={onClickQuickTest}
+            className={`h-32 w-32 [&_svg]:size-20 border-4 ${testType === "quick" ? "border-orange-400 bg-orange-300" : "border-transparent"}`}
+            onClick={() => dispatch(setTestType("quick"))}
           >
             <Timer />
           </Button>
@@ -79,17 +40,23 @@ function Selection() {
         <div className="flex flex-col">
           {/* https://github.com/shadcn-ui/ui/issues/6316 */}
           <Button
-            className={`h-32 w-32 [&_svg]:size-20 border-4 ${completeTestSelected ? "border-orange-400 bg-orange-300" : "border-transparent"}`}
-            onClick={onClickCompleteTest}
+            className={`h-32 w-32 [&_svg]:size-20 border-4 ${testType === "complete" ? "border-orange-400 bg-orange-300" : "border-transparent"}`}
+            onClick={() => dispatch(setTestType("complete"))}
           >
             <BookUp2 />
           </Button>
           <div>Complete test</div>
         </div>
       </div>
-      {testTypeText && (
+      {testType && (
         <Alert>
-          <AlertTitle>{testTypeText}</AlertTitle>
+          <AlertTitle>
+            {testType === "quick"
+              ? "5 minutes, 30 questions for the pure essence of the UnLove test."
+              : testType === "complete"
+                ? "All the question that you have to ask for not UnLoving, don't miss any detail of your relationship."
+                : ""}
+          </AlertTitle>
         </Alert>
       )}
       <h2 className="py-4 scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
@@ -99,8 +66,8 @@ function Selection() {
         <div className="flex flex-col">
           {/* https://github.com/shadcn-ui/ui/issues/6316 */}
           <Button
-            className={`h-32 w-32 [&_svg]:size-20 border-4 ${singlePartnerSelected ? "border-orange-400 bg-orange-300" : "border-transparent"}`}
-            onClick={onClickSinglePartner}
+            className={`h-32 w-32 [&_svg]:size-20 border-4 ${numberOfPartner === 1 ? "border-orange-400 bg-orange-300" : "border-transparent"}`}
+            onClick={() => dispatch(setNumberOfPartner(1))}
           >
             <Sword />
           </Button>
@@ -109,23 +76,36 @@ function Selection() {
         <div className="flex flex-col">
           {/* https://github.com/shadcn-ui/ui/issues/6316 */}
           <Button
-            className={`h-32 w-32 [&_svg]:size-20 border-4 ${twoPartnerSelected ? "border-orange-400 bg-orange-300" : "border-transparent"}`}
-            onClick={onClickTwoPartner}
+            className={`h-32 w-32 [&_svg]:size-20 border-4 ${numberOfPartner === 2 ? "border-orange-400 bg-orange-300" : "border-transparent"}`}
+            onClick={() => dispatch(setNumberOfPartner(2))}
           >
             <Swords />
           </Button>
           <div>Two Players</div>
         </div>
       </div>
-      {numberPatnerText && (
+      {numberOfPartner && (
         <Alert>
-          <AlertTitle>{numberPatnerText}</AlertTitle>
+          <AlertTitle>
+            {numberOfPartner === 1
+              ? "Take the test now and save your answer to get the results later, we store all your answers for free for 24 hours."
+              : numberOfPartner === 2
+                ? "Take the test side by side and have the result delivered immediately."
+                : ""}
+          </AlertTitle>
         </Alert>
       )}
-      {testTypeText && numberPatnerText && (
+      {testType && numberOfPartner && (
         <div className="py-4">
-          <Button onClick={onClickLaunchTest}>
-            <Swords /> Let's UnLove
+          <Button
+            onClick={() =>
+              navigate(
+                `/test/${testType}/${numberOfPartner === 1 ? "one-partner" : numberOfPartner === 2 ? "two-partners" : ""}`,
+                { replace: true },
+              )
+            }
+          >
+            <Star /> Let's UnLove
           </Button>
         </div>
       )}

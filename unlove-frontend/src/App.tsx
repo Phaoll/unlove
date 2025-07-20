@@ -15,10 +15,23 @@ function App() {
       <MainNavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/test" element={<Selection />}>
-          <Route index element={<Navigate to="2p-short" replace />} />
-          <Route path="2p-short" element={<TwoPartnersShortTest />} />
-        </Route>
+        <Route path="/test" element={<Selection />} />
+        <Route
+          path="/test/quick/one-partner"
+          element={<TwoPartnersShortTest />}
+        />
+        <Route
+          path="/test/quick/two-partners"
+          element={<TwoPartnersShortTest />}
+        />
+        <Route
+          path="/test/complete/one-partner"
+          element={<TwoPartnersShortTest />}
+        />
+        <Route
+          path="/test/complete/two-partners"
+          element={<TwoPartnersShortTest />}
+        />
       </Routes>
     </div>
   );
