@@ -3,7 +3,7 @@ import "./App.css";
 import Home from "./pages/home";
 import MainNavBar from "./components/custom/navBar";
 import Selection from "./pages/test/selection";
-import TwoPartnersQuickTest from "./pages/test/twoParntersQuick";
+import TwoPartnersQuickTest from "./pages/test/twoPartnersQuick";
 
 // TODO
 // i18n
