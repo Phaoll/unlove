@@ -17,10 +17,12 @@ export const testSettingsSlice = createSlice({
     setNumberOfPartner: (state, action: PayloadAction<number | null>) => {
       state.numberOfPartner = action.payload;
     },
+    resetTestSettings: () => initialState,
   },
 });
 
-export const { setTestType, setNumberOfPartner } = testSettingsSlice.actions;
+export const { setTestType, setNumberOfPartner, resetTestSettings } =
+  testSettingsSlice.actions;
 export default testSettingsSlice.reducer;
 
 export const selectTestType = (state: RootState) =>

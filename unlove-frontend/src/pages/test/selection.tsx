@@ -2,12 +2,14 @@ import { Alert, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { useAppSelector } from "@/store/hook";
 import {
+  resetTestSettings,
   selectNumberOfPartner,
   selectTestType,
   setNumberOfPartner,
   setTestType,
 } from "@/store/slices/testSettingsSlice";
 import { BookUp2, Star, Sword, Swords, Timer } from "lucide-react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -18,6 +20,11 @@ function Selection() {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
+
+  // Reset only on first load
+  useEffect(() => {
+    dispatch(resetTestSettings());
+  }, [dispatch]);
   const testType = useAppSelector(selectTestType);
   const numberOfPartner = useAppSelector(selectNumberOfPartner);
 
