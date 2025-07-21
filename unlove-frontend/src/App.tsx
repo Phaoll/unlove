@@ -1,9 +1,9 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home";
 import MainNavBar from "./components/custom/navBar";
 import Selection from "./pages/test/selection";
-import TwoPartnersShortTest from "./pages/test/2p-short";
+import TwoPartnersQuickTest from "./pages/test/twoParntersQuick";
 
 // TODO
 // i18n
@@ -18,19 +18,19 @@ function App() {
         <Route path="/test" element={<Selection />} />
         <Route
           path="/test/quick/one-partner"
-          element={<TwoPartnersShortTest />}
+          element={<TwoPartnersQuickTest />}
         />
         <Route
           path="/test/quick/two-partners"
-          element={<TwoPartnersShortTest />}
+          element={<TwoPartnersQuickTest />}
         />
         <Route
           path="/test/complete/one-partner"
-          element={<TwoPartnersShortTest />}
+          element={<TwoPartnersQuickTest />}
         />
         <Route
           path="/test/complete/two-partners"
-          element={<TwoPartnersShortTest />}
+          element={<TwoPartnersQuickTest />}
         />
       </Routes>
     </div>

@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 // TODO
-// Add launch button
+// Explain how test work
 
 function Selection() {
   const navigate = useNavigate();
