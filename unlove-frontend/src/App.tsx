@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import MainNavBar from "./components/custom/navBar";
 import Selection from "./pages/test/selection";
 import TwoPartnersQuickTest from "./pages/test/twoPartnersQuick";
+import Results from "./pages/test/results";
 
 // TODO
 // i18n
@@ -32,6 +33,7 @@ function App() {
           path="/test/complete/two-partners"
           element={<TwoPartnersQuickTest />}
         />
+        <Route path="/test/results" element={<Results />} />
       </Routes>
     </div>
   );

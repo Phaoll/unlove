@@ -20,7 +20,7 @@ function TwoPartnersQuickTest() {
         ))}
       </div>
       <div className="py-4">
-        <Button onClick={() => navigate(`/test/result`, { replace: true })}>
+        <Button onClick={() => navigate(`/test/results`, { replace: true })}>
           <CircleQuestionMark /> How bad is it?
         </Button>
       </div>
