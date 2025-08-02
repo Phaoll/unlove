@@ -10,15 +10,15 @@ const quickTestQuestion: QuestionType[] = [
     category: "family",
     type: "radio",
   },
-  {
-    id: "2",
-    wording: {
-      FR: "Je me marierait avec mon ou ma partenaire.",
-      EN: "I will marry my partner.",
-    },
-    category: "family",
-    type: "radio",
-  },
+  // {
+  //   id: "2",
+  //   wording: {
+  //     FR: "Je me marierait avec mon ou ma partenaire.",
+  //     EN: "I will marry my partner.",
+  //   },
+  //   category: "family",
+  //   type: "radio",
+  // },
   {
     id: "3",
     wording: {
@@ -28,15 +28,15 @@ const quickTestQuestion: QuestionType[] = [
     category: "work",
     type: "radio",
   },
-  // {
-  //   id: "4",
-  //   wording: {
-  //     FR: "Mon ou ma partenaire ne peut embrasser d'autres personnes sur les lèvres.",
-  //     EN: "My partner can't French kiss another than me.",
-  //   },
-  //   category: "loyalty",
-  //   type: "radio",
-  // },
+  {
+    id: "4",
+    wording: {
+      FR: "Mon ou ma partenaire ne peut embrasser d'autres personnes sur les lèvres.",
+      EN: "My partner can't French kiss another than me.",
+    },
+    category: "loyalty",
+    type: "radio",
+  },
   // {
   //   id: "5",
   //   wording: {
@@ -73,15 +73,15 @@ const quickTestQuestion: QuestionType[] = [
   //   category: "loyalty",
   //   type: "radio",
   // },
-  // {
-  //   id: "9",
-  //   wording: {
-  //     FR: "Notre futur se situe dans une ville ou dans un milieu urbain.",
-  //     EN: "Our future is in a city or urban area.",
-  //   },
-  //   category: "future",
-  //   type: "radio",
-  // },
+  {
+    id: "9",
+    wording: {
+      FR: "Notre futur se situe dans une ville ou dans un milieu urbain.",
+      EN: "Our future is in a city or urban area.",
+    },
+    category: "future",
+    type: "radio",
+  },
   // {
   //   id: "10",
   //   wording: {
@@ -118,15 +118,15 @@ const quickTestQuestion: QuestionType[] = [
   //   category: "current",
   //   type: "radio",
   // },
-  // {
-  //   id: "14",
-  //   wording: {
-  //     FR: "Mon ou ma partenaire consomme occasionnellement des drogues.",
-  //     EN: "My partner do drugs occasionnaly.",
-  //   },
-  //   category: "current",
-  //   type: "radio",
-  // },
+  {
+    id: "14",
+    wording: {
+      FR: "Mon ou ma partenaire consomme occasionnellement des drogues.",
+      EN: "My partner do drugs occasionnaly.",
+    },
+    category: "current",
+    type: "radio",
+  },
   // {
   //   id: "15",
   //   wording: {
@@ -172,15 +172,15 @@ const quickTestQuestion: QuestionType[] = [
   //   category: "current",
   //   type: "radio",
   // },
-  // {
-  //   id: "20",
-  //   wording: {
-  //     FR: "Mon ou ma partenaire peut n'avoir aucune conscience écologique.",
-  //     EN: "My partner can have no real environmental awareness.",
-  //   },
-  //   category: "values",
-  //   type: "radio",
-  // },
+  {
+    id: "20",
+    wording: {
+      FR: "Mon ou ma partenaire peut n'avoir aucune conscience écologique.",
+      EN: "My partner can have no real environmental awareness.",
+    },
+    category: "values",
+    type: "radio",
+  },
   // {
   //   id: "21",
   //   wording: {

@@ -77,7 +77,7 @@ const questions = [
             "FR": "Notre futur se situe dans une ville ou dans un milieu urbain.",
             "EN": "Our future is in a city or urban area."
         },
-        "category": "future situation",
+        "category": "future",
         "is_short": true
     },
     {
@@ -86,7 +86,7 @@ const questions = [
             "FR": "Mon ou ma partenaire pratique des activités sportives extrêmes (MMA, chute libre, etc.).",
             "EN": "My partner practice extreme sports (MMA, sky diving, etc.)."
         },
-        "category": "future situation",
+        "category": "future",
         "is_short": true
     },
     {
@@ -113,7 +113,7 @@ const questions = [
             "FR": "Mon ou ma partenaire est fumeur de tabac.",
             "EN": "My partner smoke tobaco."
         },
-        "category": "current situation",
+        "category": "current",
         "is_short": true
     },
     {
@@ -122,7 +122,7 @@ const questions = [
             "FR": "Mon ou ma partenaire consomme occasionnellement des drogues.",
             "EN": "My partner do drugs occasionnaly."
         },
-        "category": "current situation",
+        "category": "current",
         "is_short": true
     },
     {
@@ -131,7 +131,7 @@ const questions = [
             "FR": "Mon ou ma partenaire est et/ou accepte des fétichismes.",
             "EN": "My partner have and/or accept kinks."
         },
-        "category": "current situation",
+        "category": "current",
         "is_short": true
     },
     {
@@ -140,7 +140,7 @@ const questions = [
             "FR": "Mon ou ma partenaire est engagé et actif politiquement.",
             "EN": "My partner is a political activist."
         },
-        "category": "current situation",
+        "category": "current",
         "is_short": true
     },
     {
@@ -149,7 +149,7 @@ const questions = [
             "FR": "Mon ou ma partenaire ne pratique pas d'activité physique régulière.",
             "EN": "My partner doesn't practice any fitness activity."
         },
-        "category": "current situation",
+        "category": "current",
         "is_short": true
     },
     {
@@ -158,7 +158,7 @@ const questions = [
             "FR": "Mon ou ma partenaire est pratiquant d'une religion.",
             "EN": "My partner is pratice a religion."
         },
-        "category": "current situation",
+        "category": "current",
         "is_short": true
     },
     {
@@ -167,7 +167,7 @@ const questions = [
             "FR": "Mon ou ma partenaire est vegan.",
             "EN": "My partner is vegan."
         },
-        "category": "current situation",
+        "category": "current",
         "is_short": true
     },
     {
@@ -176,7 +176,7 @@ const questions = [
             "FR": "Mon ou ma partenaire peut n'avoir aucune conscience écologique.",
             "EN": "My partner can have no real environmental awareness."
         },
-        "category": "general values",
+        "category": "values",
         "is_short": true
     },
     {
@@ -185,7 +185,7 @@ const questions = [
             "FR": "Mon ou ma partenaire n'a aucune réelle discipline financière.",
             "EN": "My partner have no real financial discipline."
         },
-        "category": "general values",
+        "category": "values",
         "is_short": true
     }
 ]

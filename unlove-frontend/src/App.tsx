@@ -7,6 +7,10 @@ import TwoPartnersQuickTest from "./pages/test/twoPartnersQuick";
 import Results from "./pages/test/results";
 
 // TODO
+// Better result display
+// Sliders and input renderers
+// Explanation and test button in home
+// Explanation in the test section
 // i18n
 // notify a user when its data is used for a comparison and send the same result
 
