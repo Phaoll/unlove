@@ -49,6 +49,7 @@ function Selection() {
           <Button
             className={`h-32 w-32 [&_svg]:size-20 border-4 ${testType === "complete" ? "border-orange-400 bg-orange-300" : "border-transparent"}`}
             onClick={() => dispatch(setTestType("complete"))}
+            disabled
           >
             <BookUp2 />
           </Button>
@@ -75,6 +76,7 @@ function Selection() {
           <Button
             className={`h-32 w-32 [&_svg]:size-20 border-4 ${numberOfPartner === 1 ? "border-orange-400 bg-orange-300" : "border-transparent"}`}
             onClick={() => dispatch(setNumberOfPartner(1))}
+            disabled
           >
             <Sword />
           </Button>
