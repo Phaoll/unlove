@@ -1,26 +1,98 @@
+import { ResultRadar } from "@/components/custom/resultRadar";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import quickTestQuestion from "@/data/quickTest.questions";
 import { useAppSelector } from "@/store/hook";
+import { selectTestType } from "@/store/slices/testSettingsSlice";
 import { selectAnsweredQuestionsRecord } from "@/store/slices/unloveTestSlice";
+import { QuestionTypeCategory } from "@/types/questions.types";
+
+function ComputeTestResult({ filter }: { filter?: QuestionTypeCategory } = {}) {
+  const answeredQuestionsRecord = useAppSelector(selectAnsweredQuestionsRecord);
+  const testType = useAppSelector(selectTestType);
+
+  const score = Object.keys(answeredQuestionsRecord).reduce(
+    (totalGapLength, key) => {
+      const question = answeredQuestionsRecord[key];
+      const baseQuestionsSet =
+        testType == "quick" ? quickTestQuestion : quickTestQuestion; // TODO : change with evolution
+      if (
+        filter &&
+        baseQuestionsSet.filter((question) => question.id == key)[0].category ==
+          filter
+      ) {
+        return totalGapLength;
+      }
+
+      if (question.partnerOne && question.partnerTwo) {
+        const gapLength = Math.pow(
+          Math.abs(question.partnerOne - question.partnerTwo),
+          2,
+        );
+        return totalGapLength + gapLength;
+      }
+      return totalGapLength;
+    },
+    0,
+  );
+
+  return score;
+}
 
 function Results() {
-  const answeredQuestionsRecord = useAppSelector(selectAnsweredQuestionsRecord);
+  const unloveScore = ComputeTestResult();
+
+  const radarChartScores = {
+    familyScore: ComputeTestResult({ filter: "family" }),
+    workScore: ComputeTestResult({ filter: "work" }),
+    loyaltyScore: ComputeTestResult({ filter: "loyalty" }),
+    futureScore: ComputeTestResult({ filter: "future" }),
+    currentScore: ComputeTestResult({ filter: "current" }),
+    valuesScore: ComputeTestResult({ filter: "values" }),
+  };
 
   return (
     <div>
-      <div>Results</div>
-      <div className="py-4">
-        You are far appart of{" "}
-        {Object.keys(answeredQuestionsRecord).reduce((totalGapLength, key) => {
-          const question = answeredQuestionsRecord[key];
-          if (question.partnerOne && question.partnerTwo) {
-            const gapLength = Math.pow(
-              Math.abs(question.partnerOne - question.partnerTwo),
-              2,
-            );
-            return totalGapLength + gapLength;
-          }
-          return totalGapLength;
-        }, 0)}
+      <div className="text-3xl">
+        {unloveScore} UnLove point{unloveScore > 1 && "s"}
       </div>
+      <div className="flex flex-row py-8">
+        <div className="w-full gap-y-2">
+          <div className="text-xl text-left">Three questions to ask soon:</div>
+          <div className="text-lg text-left">
+            Is their a pilot in the plane?
+          </div>
+          <div className="text-lg text-left">
+            Does the set of all set contains itself?
+          </div>
+          <div className="text-lg text-left">This affirmation is false</div>
+        </div>
+        <ResultRadar {...radarChartScores} />
+      </div>
+      <Accordion type="single" collapsible className="w-full">
+        <AccordionItem value="item-1">
+          <AccordionTrigger className="text-lg">
+            How is my score computed?
+          </AccordionTrigger>
+          <AccordionContent className="flex flex-col gap-4 items-start">
+            <p className=" text-left">TO BE BUILT</p>
+            <p className=" text-left">Basic distance computation + formula</p>
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="item-1">
+          <AccordionTrigger className="text-lg">
+            What is a high score and low score?
+          </AccordionTrigger>
+          <AccordionContent className="flex flex-col gap-4 items-start">
+            <p className=" text-left">TO BE BUILT</p>
+            <p className=" text-left">Score range + gaussian</p>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </div>
   );
 }

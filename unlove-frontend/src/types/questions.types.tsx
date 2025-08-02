@@ -1,7 +1,15 @@
+export type QuestionTypeCategory =
+  | "family"
+  | "work"
+  | "loyalty"
+  | "future"
+  | "current"
+  | "values";
+
 export type QuestionType = {
   id: string;
   wording: WordingType;
-  category: "family" | "work" | "loyalty" | "future" | "current" | "values";
+  category: QuestionTypeCategory;
   type: "input" | "radio" | "slider";
 };
 
