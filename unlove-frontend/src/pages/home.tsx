@@ -8,6 +8,12 @@ import { AccordionItem } from "@radix-ui/react-accordion";
 import { Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
+const possibleSubTitle: string[] = [
+  "Try not to unlove before loving",
+  "Foresee the unlove rather than searching for love",
+  "The ultimate incompatibility test",
+];
+
 function Home() {
   const navigate = useNavigate();
 
@@ -17,7 +23,7 @@ function Home() {
         UnLove
       </h1>
       <h2 className="text-2xl font-cozy font-bold mb-6 text-center text-cozyPurple">
-        Try not to unlove before loving
+        {possibleSubTitle[Math.floor(Math.random() * possibleSubTitle.length)]}
       </h2>
       <p className="text-lg text-center text-softOrange mb-8 max-w-xl">
         Long term relationship is based on long term common values. We bring you
