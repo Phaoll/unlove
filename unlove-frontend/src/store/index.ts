@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import testSettingsSlice from "./slices/testSettingsSlice";
 import unloveTestSlice from "./slices/unloveTestSlice";
+import appSettingsSlice from "./slices/appSettingsSlice";
 
 export const store = configureStore({
   reducer: {
     testSettingsStore: testSettingsSlice,
+    appSettingsStore: appSettingsSlice,
     unloveTestStore: unloveTestSlice,
   },
 });

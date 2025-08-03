@@ -1,10 +1,11 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home";
 import MainNavBar from "./components/custom/navBar";
 import Selection from "./pages/test/selection";
 import TwoPartnersQuickTest from "./pages/test/twoPartnersQuick";
 import Results from "./pages/test/results";
+import TestHelpButton from "./components/custom/testHelp";
 
 // TODO
 // Better result display
@@ -15,6 +16,7 @@ import Results from "./pages/test/results";
 // notify a user when its data is used for a comparison and send the same result
 
 function App() {
+  const location = useLocation();
   return (
     <div className="App">
       <MainNavBar />
@@ -39,6 +41,13 @@ function App() {
         />
         <Route path="/test/results" element={<Results />} />
       </Routes>
+      {[
+        "/test",
+        "/test/quick/one-partner",
+        "/test/quick/two-partners",
+        "/test/complete/one-partner",
+        "/test/complete/two-partners",
+      ].includes(location.pathname) && <TestHelpButton />}
     </div>
   );
 }
