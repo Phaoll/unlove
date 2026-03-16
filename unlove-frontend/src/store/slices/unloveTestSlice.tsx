@@ -3,9 +3,8 @@ import { RootState } from "..";
 import {
   AnsweredQuestionsRecordType,
   AnsweredQuestionType,
-  AnswersType,
   unloveTestState,
-} from "@/types/unloveTest.types";
+} from "@/types/answers.types";
 import { TestTypeType } from "@/types/test.types";
 import quickTestQuestion from "@/data/quickTest.questions";
 
@@ -22,18 +21,30 @@ export const unloveTestSlice = createSlice({
       const testType = action.payload;
       state.currentTestType = testType;
       if (testType === "quick") {
-        quickTestQuestion.map(
-          (question) =>
-            (state.answeredQuestions[question.id] = {
-              partnerOne: undefined,
-              partnerTwo: undefined,
-            }),
-        );
+        quickTestQuestion.map((question) => {
+          switch (question.format) {
+            case "radio":
+              state.answeredQuestions[question.id] = {
+                id: question.id,
+                format: "radio",
+                partnerOne: undefined,
+                partnerTwo: undefined,
+              };
+              break;
+            case "inputSlider":
+              state.answeredQuestions[question.id] = {
+                id: question.id,
+                format: "inputSlider",
+                partnerOne: undefined,
+                partnerTwo: undefined,
+              };
+          }
+        });
       }
     },
     setAnswer: (state, action: PayloadAction<AnsweredQuestionType>) => {
       const answer = action.payload;
-      state.answeredQuestions[answer.id][answer.partnerNumber] = answer.answer;
+      state.answeredQuestions[answer.id] = answer;
     },
     resetTest: (state) => {
       state.currentTestType = null;
@@ -54,4 +65,4 @@ export const selectAnsweredQuestionsRecord = (
 export const selectAnsweredQuestion = (
   state: RootState,
   questionId: string,
-): AnswersType => state.unloveTestStore.answeredQuestions[questionId];
+): AnsweredQuestionType => state.unloveTestStore.answeredQuestions[questionId];

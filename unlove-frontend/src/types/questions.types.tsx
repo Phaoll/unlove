@@ -1,4 +1,4 @@
-export type QuestionTypeCategory =
+export type QuestionCategoryType =
   | "family"
   | "work"
   | "loyalty"
@@ -6,15 +6,45 @@ export type QuestionTypeCategory =
   | "current"
   | "values";
 
-export type QuestionType = {
-  id: string;
-  wording: WordingType;
-  category: QuestionTypeCategory;
-  type: "input" | "radio" | "slider";
-};
+export type QuestionFormatType = "radio" | "inputSlider" | "slider";
 
 type WordingType = {
   EN: string;
   FR?: string;
   [key: string]: string | undefined;
 };
+
+type BaseQuestion = {
+  id: string;
+  category: QuestionCategoryType;
+  format: QuestionFormatType;
+};
+
+export type InputSliderQuestion = BaseQuestion & {
+  format: "inputSlider";
+  mainWording: WordingType;
+  sliderWording: WordingType;
+  inputWording: WordingType;
+  min: number;
+  max: number;
+  defaultSlider1: number;
+  defaultSlider2: number;
+  defaultSlider3: number;
+  defaultSlider4: number;
+  allowOverlap?: boolean;
+};
+
+export type RadioQuestion = BaseQuestion & {
+  format: "radio";
+  wording: WordingType;
+};
+
+export type SliderQuestion = BaseQuestion & {
+  format: "slider";
+  min: number;
+  max: number;
+  step?: number;
+};
+
+// Union of all variants
+export type QuestionType = InputSliderQuestion | RadioQuestion | SliderQuestion;

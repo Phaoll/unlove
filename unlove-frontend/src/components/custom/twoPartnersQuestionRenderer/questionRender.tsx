@@ -1,16 +1,16 @@
 import { QuestionType } from "@/types/questions.types";
 import TwoPartnersRadioQuestionRenderer from "./radioRender";
-import TwoPartnerInputQuestionRenderer from "./inputRenderer";
+import TwoPartnerInputSliderQuestionRenderer from "./inputSliderRenderer";
 
 type QuestionRendererProps = {
   question: QuestionType;
 };
 
 const TwoPartnerQuestionRenderer = ({ question }: QuestionRendererProps) => {
-  if (question.type === "radio")
+  if (question.format === "radio")
     return <TwoPartnersRadioQuestionRenderer question={question} />;
-  if (question.type === "input")
-    return <TwoPartnerInputQuestionRenderer question={question} />;
+  if (question.format === "inputSlider")
+    return <TwoPartnerInputSliderQuestionRenderer question={question} />;
 
   return <div>Failure to render question, contact devs</div>;
 };

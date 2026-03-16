@@ -51,16 +51,20 @@ export function ResultRadar({
   const testType = useAppSelector(selectTestType);
 
   const chartData = [
-    { questionType: "family", label: "Family", score: familyScore },
-    { questionType: "work", label: "Work", score: workScore },
-    { questionType: "loyalty", label: "Loyalty", score: loyaltyScore },
-    { questionType: "future", label: "Future situation", score: futureScore },
+    { QuestionCategory: "family", label: "Family", score: familyScore },
+    { QuestionCategory: "work", label: "Work", score: workScore },
+    { QuestionCategory: "loyalty", label: "Loyalty", score: loyaltyScore },
     {
-      questionType: "current",
+      QuestionCategory: "future",
+      label: "Future situation",
+      score: futureScore,
+    },
+    {
+      QuestionCategory: "current",
       label: "Current situation",
       score: currentScore,
     },
-    { questionType: "values", label: "Others", score: valuesScore },
+    { QuestionCategory: "values", label: "Others", score: valuesScore },
   ];
 
   const radarChartMaxScore = testType == "quick" ? 200 : 2000; // TODO change with evolution

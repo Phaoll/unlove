@@ -1,4 +1,4 @@
-import { QuestionType } from "@/types/questions.types";
+import { RadioQuestion } from "@/types/questions.types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "@/store/hook";
@@ -13,7 +13,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 type TwoPartnersRadioQuestionRendererProps = {
-  question: QuestionType;
+  question: RadioQuestion;
 };
 
 const TwoPartnersRadioQuestionRenderer = ({
@@ -23,6 +23,8 @@ const TwoPartnersRadioQuestionRenderer = ({
   const questionState = useAppSelector((state) =>
     selectAnsweredQuestion(state, question.id),
   );
+
+  if (questionState.format !== "radio") return;
 
   return (
     <Card className="w-fit py-1">
@@ -34,13 +36,14 @@ const TwoPartnersRadioQuestionRenderer = ({
           <div className="bg-white p-6 rounded-lg shadow-sm border">
             <RadioGroup
               name="demo-options"
-              selectedValue={questionState.partnerOne}
+              selectedValue={questionState.partnerOne?.answerInput}
               onChange={(selectedValue) =>
                 dispatch(
                   setAnswer({
                     id: question.id,
-                    partnerNumber: "partnerOne",
-                    answer: selectedValue,
+                    format: "radio",
+                    partnerOne: { answerInput: selectedValue },
+                    partnerTwo: questionState.partnerTwo,
                   }),
                 )
               }
@@ -49,13 +52,14 @@ const TwoPartnersRadioQuestionRenderer = ({
           <div className="bg-white p-6 rounded-lg shadow-sm border">
             <RadioGroup
               name="demo-options"
-              selectedValue={questionState.partnerTwo}
+              selectedValue={questionState.partnerTwo?.answerInput}
               onChange={(selectedValue) =>
                 dispatch(
                   setAnswer({
                     id: question.id,
-                    partnerNumber: "partnerTwo",
-                    answer: selectedValue,
+                    format: "radio",
+                    partnerOne: questionState.partnerOne,
+                    partnerTwo: { answerInput: selectedValue },
                   }),
                 )
               }

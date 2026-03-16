@@ -2,13 +2,61 @@ import { QuestionType } from "@/types/questions.types";
 
 const quickTestQuestion: QuestionType[] = [
   {
+    id: "1.1",
+    format: "inputSlider",
+    category: "family",
+    mainWording: {
+      FR: "Âge",
+      EN: "About age",
+    },
+    sliderWording: {
+      FR: "Quel âge devrait avoir votre partenaire ?",
+      EN: "What would the preferred age of your partner?",
+    },
+    inputWording: {
+      FR: "Quel âge avez vous ?",
+      EN: "How old are you?",
+    },
+    min: 13,
+    max: 80,
+    defaultSlider1: 18,
+    defaultSlider2: 20,
+    defaultSlider3: 25,
+    defaultSlider4: 30,
+    allowOverlap: false,
+  },
+  {
+    id: "1.2",
+    format: "inputSlider",
+    category: "family",
+    mainWording: {
+      FR: "Enfants",
+      EN: "About kids",
+    },
+    sliderWording: {
+      FR: "Combien d'enfant veut votre partenaire ?",
+      EN: "How many kids does your partner want?",
+    },
+    inputWording: {
+      FR: "Combien en voulez vous ?",
+      EN: "How many do you want?",
+    },
+    min: 0,
+    max: 10,
+    defaultSlider1: 1,
+    defaultSlider2: 2,
+    defaultSlider3: 3,
+    defaultSlider4: 4,
+    allowOverlap: true,
+  },
+  {
     id: "1",
     wording: {
       FR: "J'aurai des enfants avec mon ou ma partenaire.",
       EN: "I want to have children with my partner.",
     },
     category: "family",
-    type: "radio",
+    format: "radio",
   },
   // {
   //   id: "2",
@@ -17,7 +65,7 @@ const quickTestQuestion: QuestionType[] = [
   //     EN: "I will marry my partner.",
   //   },
   //   category: "family",
-  //   type: "radio",
+  //   format: "radio",
   // },
   {
     id: "3",
@@ -26,7 +74,7 @@ const quickTestQuestion: QuestionType[] = [
       EN: "My partner can cancel a date for professional reasons.",
     },
     category: "work",
-    type: "radio",
+    format: "radio",
   },
   {
     id: "4",
@@ -35,7 +83,7 @@ const quickTestQuestion: QuestionType[] = [
       EN: "My partner can't French kiss another than me.",
     },
     category: "loyalty",
-    type: "radio",
+    format: "radio",
   },
   // {
   //   id: "5",
@@ -44,7 +92,7 @@ const quickTestQuestion: QuestionType[] = [
   //     EN: "We will support our children if they are LGBT.",
   //   },
   //   category: "family",
-  //   type: "radio",
+  //   format: "radio",
   // },
   // {
   //   id: "6",
@@ -53,7 +101,7 @@ const quickTestQuestion: QuestionType[] = [
   //     EN: "My partner can have sexual intercourse with another one than me.",
   //   },
   //   category: "loyalty",
-  //   type: "radio",
+  //   format: "radio",
   // },
   // {
   //   id: "7",
@@ -62,7 +110,7 @@ const quickTestQuestion: QuestionType[] = [
   //     EN: "My partner stay in touch with former sexual partners.",
   //   },
   //   category: "loyalty",
-  //   type: "radio",
+  //   format: "radio",
   // },
   // {
   //   id: "8",
@@ -71,7 +119,7 @@ const quickTestQuestion: QuestionType[] = [
   //     EN: "I can freely access the social networks and phone of my partner.",
   //   },
   //   category: "loyalty",
-  //   type: "radio",
+  //   format: "radio",
   // },
   {
     id: "9",
@@ -80,7 +128,7 @@ const quickTestQuestion: QuestionType[] = [
       EN: "Our future is in a city or urban area.",
     },
     category: "future",
-    type: "radio",
+    format: "radio",
   },
   // {
   //   id: "10",
@@ -89,7 +137,7 @@ const quickTestQuestion: QuestionType[] = [
   //     EN: "My partner practice extreme sports (MMA, sky diving, etc.).",
   //   },
   //   category: "future",
-  //   type: "radio",
+  //   format: "radio",
   // },
   // {
   //   id: "11",
@@ -98,7 +146,7 @@ const quickTestQuestion: QuestionType[] = [
   //     EN: "My partner can work during weekends.",
   //   },
   //   category: "work",
-  //   type: "radio",
+  //   format: "radio",
   // },
   // {
   //   id: "12",
@@ -107,7 +155,7 @@ const quickTestQuestion: QuestionType[] = [
   //     EN: "We can move abroad for professional reasons.",
   //   },
   //   category: "work",
-  //   type: "radio",
+  //   format: "radio",
   // },
   // {
   //   id: "13",
@@ -116,7 +164,7 @@ const quickTestQuestion: QuestionType[] = [
   //     EN: "My partner smoke tobaco.",
   //   },
   //   category: "current",
-  //   type: "radio",
+  //   format: "radio",
   // },
   {
     id: "14",
@@ -125,7 +173,7 @@ const quickTestQuestion: QuestionType[] = [
       EN: "My partner do drugs occasionnaly.",
     },
     category: "current",
-    type: "radio",
+    format: "radio",
   },
   // {
   //   id: "15",
@@ -134,7 +182,7 @@ const quickTestQuestion: QuestionType[] = [
   //     EN: "My partner have and/or accept kinks.",
   //   },
   //   category: "current",
-  //   type: "radio",
+  //   format: "radio",
   // },
   // {
   //   id: "16",
@@ -143,7 +191,7 @@ const quickTestQuestion: QuestionType[] = [
   //     EN: "My partner is a political activist.",
   //   },
   //   category: "current",
-  //   type: "radio",
+  //   format: "radio",
   // },
   // {
   //   id: "17",
@@ -152,7 +200,7 @@ const quickTestQuestion: QuestionType[] = [
   //     EN: "My partner doesn't practice any fitness activity.",
   //   },
   //   category: "current",
-  //   type: "radio",
+  //   format: "radio",
   // },
   // {
   //   id: "18",
@@ -161,7 +209,7 @@ const quickTestQuestion: QuestionType[] = [
   //     EN: "My partner is pratice a religion.",
   //   },
   //   category: "current",
-  //   type: "radio",
+  //   format: "radio",
   // },
   // {
   //   id: "19",
@@ -170,7 +218,7 @@ const quickTestQuestion: QuestionType[] = [
   //     EN: "My partner is vegan.",
   //   },
   //   category: "current",
-  //   type: "radio",
+  //   format: "radio",
   // },
   {
     id: "20",
@@ -179,7 +227,7 @@ const quickTestQuestion: QuestionType[] = [
       EN: "My partner can have no real environmental awareness.",
     },
     category: "values",
-    type: "radio",
+    format: "radio",
   },
   // {
   //   id: "21",
@@ -188,7 +236,7 @@ const quickTestQuestion: QuestionType[] = [
   //     EN: "My partner have no real financial discipline.",
   //   },
   //   category: "values",
-  //   type: "radio",
+  //   format: "radio",
   // },
 ];
 

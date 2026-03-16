@@ -9,9 +9,9 @@ import quickTestQuestion from "@/data/quickTest.questions";
 import { useAppSelector } from "@/store/hook";
 import { selectTestType } from "@/store/slices/testSettingsSlice";
 import { selectAnsweredQuestionsRecord } from "@/store/slices/unloveTestSlice";
-import { QuestionTypeCategory } from "@/types/questions.types";
+import { QuestionCategoryType } from "@/types/questions.types";
 
-function ComputeTestResult({ filter }: { filter?: QuestionTypeCategory } = {}) {
+function ComputeTestResult({ filter }: { filter?: QuestionCategoryType } = {}) {
   const answeredQuestionsRecord = useAppSelector(selectAnsweredQuestionsRecord);
   const testType = useAppSelector(selectTestType);
 
@@ -28,12 +28,80 @@ function ComputeTestResult({ filter }: { filter?: QuestionTypeCategory } = {}) {
         return totalGapLength;
       }
 
-      if (question.partnerOne && question.partnerTwo) {
-        const gapLength = Math.pow(
-          Math.abs(question.partnerOne - question.partnerTwo),
-          2,
-        );
-        return totalGapLength + gapLength;
+      switch (question.format) {
+        case "radio":
+          if (
+            question.partnerOne?.answerInput &&
+            question.partnerTwo?.answerInput
+          ) {
+            const gapLength = Math.pow(
+              Math.abs(
+                question.partnerOne.answerInput -
+                  question.partnerTwo.answerInput,
+              ),
+              2,
+            );
+            return totalGapLength + gapLength;
+          }
+          break;
+        case "inputSlider":
+          if (
+            question.partnerOne?.answerInput &&
+            question.partnerTwo?.answerInput
+          ) {
+            let finalValue = 0;
+            const answerInputP1 = question.partnerOne.answerInput;
+            const answerInputP2 = question.partnerTwo.answerInput;
+
+            // Distance from Partner One to Partner two
+            if (answerInputP1 < question.partnerTwo.answerSlider1) {
+              finalValue += Math.pow(
+                question.partnerTwo.answerSlider1 - answerInputP1,
+                2,
+              );
+            }
+            if (answerInputP1 > question.partnerTwo.answerSlider4) {
+              finalValue += Math.pow(
+                answerInputP1 - question.partnerTwo.answerSlider4,
+                2,
+              );
+            }
+            if (answerInputP1 < question.partnerTwo.answerSlider2) {
+              finalValue += Math.abs(
+                question.partnerTwo.answerSlider2 - answerInputP1,
+              );
+            }
+            if (answerInputP1 > question.partnerTwo.answerSlider3) {
+              finalValue += Math.abs(
+                question.partnerTwo.answerSlider3 - answerInputP1,
+              );
+            }
+
+            // Same for Partner Two from Partner two
+            if (answerInputP2 < question.partnerOne.answerSlider1) {
+              finalValue += Math.pow(
+                question.partnerOne.answerSlider1 - answerInputP2,
+                2,
+              );
+            }
+            if (answerInputP2 > question.partnerOne.answerSlider4) {
+              finalValue += Math.pow(
+                answerInputP2 - question.partnerOne.answerSlider4,
+                2,
+              );
+            }
+            if (answerInputP2 < question.partnerOne.answerSlider2) {
+              finalValue += Math.abs(
+                question.partnerOne.answerSlider2 - answerInputP2,
+              );
+            }
+            if (answerInputP2 > question.partnerOne.answerSlider3) {
+              finalValue += Math.abs(
+                question.partnerOne.answerSlider3 - answerInputP2,
+              );
+            }
+            return finalValue;
+          }
       }
       return totalGapLength;
     },
