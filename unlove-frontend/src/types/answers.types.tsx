@@ -1,4 +1,4 @@
-import { QuestionFormatType } from "./questions.types";
+import { BaseQuestion, QuestionFormatType } from "./questions.types";
 import { TestTypeType } from "./test.types";
 
 export type AnsweredQuestionsRecordType = Record<string, AnsweredQuestionType>;
@@ -38,7 +38,17 @@ export type AnsweredQuestionType =
   | AnsweredRadioQuestionType
   | AnsweredInputSliderQuestionType;
 
-export type unloveTestState = {
+export type UnloveTestState = {
   currentTestType: TestTypeType;
   answeredQuestions: AnsweredQuestionsRecordType;
+};
+
+export type MainProblemsType = {
+  idMainProblem1: BaseQuestion["id"];
+  idMainProblem2: BaseQuestion["id"];
+  idMainProblem3: BaseQuestion["id"];
+};
+
+export type ResultsType = MainProblemsType & {
+  score: number;
 };

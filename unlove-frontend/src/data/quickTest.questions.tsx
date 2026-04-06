@@ -5,9 +5,14 @@ const quickTestQuestion: QuestionType[] = [
     id: "1.1",
     format: "inputSlider",
     category: "family",
+    advice: {
+      FR: "",
+      EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+    },
+    coefficient: 1,
     mainWording: {
-      FR: "Âge",
-      EN: "About age",
+      FR: "Différence d'âge",
+      EN: "Age gap",
     },
     sliderWording: {
       FR: "Quel âge devrait avoir votre partenaire ?",
@@ -29,6 +34,11 @@ const quickTestQuestion: QuestionType[] = [
     id: "1.2",
     format: "inputSlider",
     category: "family",
+    advice: {
+      FR: "",
+      EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+    },
+    coefficient: 1,
     mainWording: {
       FR: "Enfants",
       EN: "About kids",
@@ -57,6 +67,11 @@ const quickTestQuestion: QuestionType[] = [
     },
     category: "family",
     format: "radio",
+    advice: {
+      FR: "",
+      EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+    },
+    coefficient: 1,
   },
   // {
   //   id: "2",
@@ -64,8 +79,14 @@ const quickTestQuestion: QuestionType[] = [
   //     FR: "Je me marierait avec mon ou ma partenaire.",
   //     EN: "I will marry my partner.",
   //   },
+  //   coefficient: 1,
   //   category: "family",
   //   format: "radio",
+  //   advice: {
+  //     FR: "",
+  //     EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+  //   },
+  //   coefficient: 1,
   // },
   {
     id: "3",
@@ -75,6 +96,11 @@ const quickTestQuestion: QuestionType[] = [
     },
     category: "work",
     format: "radio",
+    advice: {
+      FR: "",
+      EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+    },
+    coefficient: 1,
   },
   {
     id: "4",
@@ -84,6 +110,11 @@ const quickTestQuestion: QuestionType[] = [
     },
     category: "loyalty",
     format: "radio",
+    advice: {
+      FR: "",
+      EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+    },
+    coefficient: 1,
   },
   // {
   //   id: "5",
@@ -91,8 +122,14 @@ const quickTestQuestion: QuestionType[] = [
   //     FR: "Nous soutiendrons nos enfants s'ils sont LGBT.",
   //     EN: "We will support our children if they are LGBT.",
   //   },
+  //   coefficient: 1,
   //   category: "family",
   //   format: "radio",
+  //   advice: {
+  //     FR: "",
+  //     EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+  //   },
+  //   coefficient: 1,
   // },
   // {
   //   id: "6",
@@ -100,8 +137,14 @@ const quickTestQuestion: QuestionType[] = [
   //     FR: "Mon ou ma partenaire peut avoir des rapports sexuels avec une autre personne que moi.",
   //     EN: "My partner can have sexual intercourse with another one than me.",
   //   },
+  //   coefficient: 1,
   //   category: "loyalty",
   //   format: "radio",
+  //   advice: {
+  //     FR: "",
+  //     EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+  //   },
+  //   coefficient: 1,
   // },
   // {
   //   id: "7",
@@ -109,8 +152,14 @@ const quickTestQuestion: QuestionType[] = [
   //     FR: "Mon ou ma partenaire reste en contact avec d'anciens partenaire sexuels.",
   //     EN: "My partner stay in touch with former sexual partners.",
   //   },
+  //   coefficient: 1,
   //   category: "loyalty",
   //   format: "radio",
+  //   advice: {
+  //     FR: "",
+  //     EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+  //   },
+  //   coefficient: 1,
   // },
   // {
   //   id: "8",
@@ -118,8 +167,14 @@ const quickTestQuestion: QuestionType[] = [
   //     FR: "Je peux librement accéder au téléphone et réseaux de mon ou ma partenaire.",
   //     EN: "I can freely access the social networks and phone of my partner.",
   //   },
+  //   coefficient: 1,
   //   category: "loyalty",
   //   format: "radio",
+  //   advice: {
+  //     FR: "",
+  //     EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+  //   },
+  //   coefficient: 1,
   // },
   {
     id: "9",
@@ -129,6 +184,11 @@ const quickTestQuestion: QuestionType[] = [
     },
     category: "future",
     format: "radio",
+    advice: {
+      FR: "",
+      EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+    },
+    coefficient: 1,
   },
   // {
   //   id: "10",
@@ -136,8 +196,14 @@ const quickTestQuestion: QuestionType[] = [
   //     FR: "Mon ou ma partenaire pratique des activités sportives extrêmes (MMA, chute libre, etc.).",
   //     EN: "My partner practice extreme sports (MMA, sky diving, etc.).",
   //   },
+  //   coefficient: 1,
   //   category: "future",
   //   format: "radio",
+  //   advice: {
+  //     FR: "",
+  //     EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+  //   },
+  //   coefficient: 1,
   // },
   // {
   //   id: "11",
@@ -145,8 +211,14 @@ const quickTestQuestion: QuestionType[] = [
   //     FR: "Mon ou ma partenaire peut travailler durant les weekends.",
   //     EN: "My partner can work during weekends.",
   //   },
+  //   coefficient: 1,
   //   category: "work",
   //   format: "radio",
+  //   advice: {
+  //     FR: "",
+  //     EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+  //   },
+  //   coefficient: 1,
   // },
   // {
   //   id: "12",
@@ -154,8 +226,14 @@ const quickTestQuestion: QuestionType[] = [
   //     FR: "Nous pouvons nous expatrier pour des raisons professionnelles.",
   //     EN: "We can move abroad for professional reasons.",
   //   },
+  //   coefficient: 1,
   //   category: "work",
   //   format: "radio",
+  //   advice: {
+  //     FR: "",
+  //     EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+  //   },
+  //   coefficient: 1,
   // },
   // {
   //   id: "13",
@@ -163,8 +241,14 @@ const quickTestQuestion: QuestionType[] = [
   //     FR: "Mon ou ma partenaire est fumeur de tabac.",
   //     EN: "My partner smoke tobaco.",
   //   },
+  //   coefficient: 1,
   //   category: "current",
   //   format: "radio",
+  //   advice: {
+  //     FR: "",
+  //     EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+  //   },
+  //   coefficient: 1,
   // },
   {
     id: "14",
@@ -174,6 +258,11 @@ const quickTestQuestion: QuestionType[] = [
     },
     category: "current",
     format: "radio",
+    advice: {
+      FR: "",
+      EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+    },
+    coefficient: 1,
   },
   // {
   //   id: "15",
@@ -181,8 +270,14 @@ const quickTestQuestion: QuestionType[] = [
   //     FR: "Mon ou ma partenaire est et/ou accepte des fétichismes.",
   //     EN: "My partner have and/or accept kinks.",
   //   },
+  //   coefficient: 1,
   //   category: "current",
   //   format: "radio",
+  //   advice: {
+  //     FR: "",
+  //     EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+  //   },
+  //   coefficient: 1,
   // },
   // {
   //   id: "16",
@@ -190,8 +285,14 @@ const quickTestQuestion: QuestionType[] = [
   //     FR: "Mon ou ma partenaire est engagé et actif politiquement.",
   //     EN: "My partner is a political activist.",
   //   },
+  //   coefficient: 1,
   //   category: "current",
   //   format: "radio",
+  //   advice: {
+  //     FR: "",
+  //     EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+  //   },
+  //   coefficient: 1,
   // },
   // {
   //   id: "17",
@@ -199,8 +300,14 @@ const quickTestQuestion: QuestionType[] = [
   //     FR: "Mon ou ma partenaire ne pratique pas d'activité physique régulière.",
   //     EN: "My partner doesn't practice any fitness activity.",
   //   },
+  //   coefficient: 1,
   //   category: "current",
   //   format: "radio",
+  //   advice: {
+  //     FR: "",
+  //     EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+  //   },
+  //   coefficient: 1,
   // },
   // {
   //   id: "18",
@@ -208,8 +315,14 @@ const quickTestQuestion: QuestionType[] = [
   //     FR: "Mon ou ma partenaire est pratiquant d'une religion.",
   //     EN: "My partner is pratice a religion.",
   //   },
+  //   coefficient: 1,
   //   category: "current",
   //   format: "radio",
+  //   advice: {
+  //     FR: "",
+  //     EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+  //   },
+  //   coefficient: 1,
   // },
   // {
   //   id: "19",
@@ -217,8 +330,14 @@ const quickTestQuestion: QuestionType[] = [
   //     FR: "Mon ou ma partenaire est vegan.",
   //     EN: "My partner is vegan.",
   //   },
+  //   coefficient: 1,
   //   category: "current",
   //   format: "radio",
+  //   advice: {
+  //     FR: "",
+  //     EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+  //   },
+  //   coefficient: 1,
   // },
   {
     id: "20",
@@ -228,6 +347,11 @@ const quickTestQuestion: QuestionType[] = [
     },
     category: "values",
     format: "radio",
+    advice: {
+      FR: "",
+      EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+    },
+    coefficient: 1,
   },
   // {
   //   id: "21",
@@ -235,8 +359,15 @@ const quickTestQuestion: QuestionType[] = [
   //     FR: "Mon ou ma partenaire n'a aucune réelle discipline financière.",
   //     EN: "My partner have no real financial discipline.",
   //   },
+  //   coefficient: 1,
   //   category: "values",
   //   format: "radio",
+  //   advice: {
+  //     FR: "",
+  //     EN: "Your age gap is significant, take time to discuss the repercussion it may have on your life project.",
+  //   },
+  //   coefficient: 1,
+  //   coefficient: 1,
   // },
 ];
 

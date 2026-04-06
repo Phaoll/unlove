@@ -9,7 +9,7 @@ import TestHelpButton from "./components/custom/testHelp";
 
 // TODO
 // Better result display
-// Sliders and input renderers
+// Solo test + database
 // Explanation and test button in home
 // Explanation in the test section
 // i18n

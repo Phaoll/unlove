@@ -9,11 +9,30 @@ import quickTestQuestion from "@/data/quickTest.questions";
 import { useAppSelector } from "@/store/hook";
 import { selectTestType } from "@/store/slices/testSettingsSlice";
 import { selectAnsweredQuestionsRecord } from "@/store/slices/unloveTestSlice";
-import { QuestionCategoryType } from "@/types/questions.types";
+import { MainProblemsType, ResultsType } from "@/types/answers.types";
+import { BaseQuestion, QuestionCategoryType } from "@/types/questions.types";
 
-function ComputeTestResult({ filter }: { filter?: QuestionCategoryType } = {}) {
+function GetMainProblems({
+  QuestionIdScoreMap,
+}: {
+  QuestionIdScoreMap: Record<BaseQuestion["id"], number>;
+}): MainProblemsType {
+  return {
+    idMainProblem1: "1",
+    idMainProblem2: "2",
+    idMainProblem3: "3",
+  };
+}
+
+function ComputeTestResult({
+  filter,
+}: {
+  filter?: QuestionCategoryType;
+} = {}): ResultsType {
   const answeredQuestionsRecord = useAppSelector(selectAnsweredQuestionsRecord);
   const testType = useAppSelector(selectTestType);
+
+  const QuestionIdScoreMap: Record<BaseQuestion["id"], number> = {};
 
   const score = Object.keys(answeredQuestionsRecord).reduce(
     (totalGapLength, key) => {
@@ -22,8 +41,8 @@ function ComputeTestResult({ filter }: { filter?: QuestionCategoryType } = {}) {
         testType == "quick" ? quickTestQuestion : quickTestQuestion; // TODO : change with evolution
       if (
         filter &&
-        baseQuestionsSet.filter((question) => question.id == key)[0].category ==
-          filter
+        baseQuestionsSet.filter((question) => question.id == key)[0]
+          .category !== filter
       ) {
         return totalGapLength;
       }
@@ -41,6 +60,7 @@ function ComputeTestResult({ filter }: { filter?: QuestionCategoryType } = {}) {
               ),
               2,
             );
+            QuestionIdScoreMap[question.id] = gapLength;
             return totalGapLength + gapLength;
           }
           break;
@@ -100,7 +120,8 @@ function ComputeTestResult({ filter }: { filter?: QuestionCategoryType } = {}) {
                 question.partnerOne.answerSlider3 - answerInputP2,
               );
             }
-            return finalValue;
+            QuestionIdScoreMap[question.id] = finalValue;
+            return totalGapLength + finalValue;
           }
       }
       return totalGapLength;
@@ -108,25 +129,31 @@ function ComputeTestResult({ filter }: { filter?: QuestionCategoryType } = {}) {
     0,
   );
 
-  return score;
+  const mainProblems = GetMainProblems(QuestionIdScoreMap);
+  return {
+    score,
+    idMainProblem1: "1",
+    idMainProblem2: "2",
+    idMainProblem3: "3",
+  };
 }
 
 function Results() {
   const unloveScore = ComputeTestResult();
 
   const radarChartScores = {
-    familyScore: ComputeTestResult({ filter: "family" }),
-    workScore: ComputeTestResult({ filter: "work" }),
-    loyaltyScore: ComputeTestResult({ filter: "loyalty" }),
-    futureScore: ComputeTestResult({ filter: "future" }),
-    currentScore: ComputeTestResult({ filter: "current" }),
-    valuesScore: ComputeTestResult({ filter: "values" }),
+    familyScore: ComputeTestResult({ filter: "family" }).score,
+    workScore: ComputeTestResult({ filter: "work" }).score,
+    loyaltyScore: ComputeTestResult({ filter: "loyalty" }).score,
+    futureScore: ComputeTestResult({ filter: "future" }).score,
+    currentScore: ComputeTestResult({ filter: "current" }).score,
+    valuesScore: ComputeTestResult({ filter: "values" }).score,
   };
 
   return (
     <div>
       <div className="text-3xl">
-        {unloveScore} UnLove point{unloveScore > 1 && "s"}
+        {unloveScore.score} UnLove point{unloveScore.score > 1 && "s"}
       </div>
       <div className="flex flex-row py-8">
         <div className="w-full gap-y-2">

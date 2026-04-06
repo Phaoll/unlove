@@ -14,10 +14,12 @@ type WordingType = {
   [key: string]: string | undefined;
 };
 
-type BaseQuestion = {
+export type BaseQuestion = {
   id: string;
   category: QuestionCategoryType;
   format: QuestionFormatType;
+  advice: WordingType;
+  coefficient: number;
 };
 
 export type InputSliderQuestion = BaseQuestion & {

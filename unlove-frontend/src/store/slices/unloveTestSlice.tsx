@@ -3,12 +3,12 @@ import { RootState } from "..";
 import {
   AnsweredQuestionsRecordType,
   AnsweredQuestionType,
-  unloveTestState,
+  UnloveTestState,
 } from "@/types/answers.types";
 import { TestTypeType } from "@/types/test.types";
 import quickTestQuestion from "@/data/quickTest.questions";
 
-const unloveTestInitialState: unloveTestState = {
+const unloveTestInitialState: UnloveTestState = {
   currentTestType: null,
   answeredQuestions: {},
 };
